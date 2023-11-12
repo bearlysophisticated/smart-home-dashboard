@@ -4,14 +4,14 @@ import '../constants/constant.dart';
 
 class ScaledIconButton extends StatelessWidget {
   const ScaledIconButton({
-    @required this.icon,
+    required this.icon,
     this.scale = 2.0,
-    this.onClick,
-    Key key,
+    required this.onClick,
+    Key? key,
   }) : super(key: key);
   final double scale;
   final String icon;
-  final Function onClick;
+  final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {

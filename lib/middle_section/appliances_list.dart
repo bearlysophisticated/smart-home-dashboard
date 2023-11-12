@@ -6,10 +6,10 @@ import 'appliances_list_item.dart';
 
 class AppliancesList extends StatefulWidget {
   const AppliancesList({
-    @required this.appliances,
-    this.onSelect,
-    this.onApplianceStateChange,
-    Key key,
+    required this.appliances,
+    required this.onSelect,
+    required this.onApplianceStateChange,
+    Key? key,
   }) : super(key: key);
 
   final List<Appliance> appliances;

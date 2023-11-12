@@ -6,9 +6,9 @@ import '../constants/constant.dart';
 
 class ApplianceControllerPainter extends CustomPainter {
   ApplianceControllerPainter({
-    @required this.linearGradientColors,
-    @required this.stops,
-    @required this.swapAngle,
+    required this.linearGradientColors,
+    required this.stops,
+    required this.swapAngle,
   }) : assert(linearGradientColors.length == stops.length,
             'linearGradientColors length must match stops length') {
     initialTemperature += swapAngle / _kInitialAngle;

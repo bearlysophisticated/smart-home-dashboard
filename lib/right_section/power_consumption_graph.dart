@@ -6,9 +6,9 @@ import '../constants/constant.dart';
 
 class PowerConsumptionGraph extends StatefulWidget {
   const PowerConsumptionGraph({
-    @required this.width,
-    @required this.height,
-    Key key,
+    required this.width,
+    required this.height,
+    Key? key,
   }) : super(key: key);
   final double width;
   final double height;
@@ -86,7 +86,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         touchTooltipData: LineTouchTooltipData(
           tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
         ),
-        touchCallback: (touchResponse) {},
+        touchCallback: (event, touchResponse) {},
         handleBuiltInTouches: true,
       ),
       gridData: FlGridData(
@@ -95,49 +95,54 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         drawVerticalLine: true,
       ),
       titlesData: FlTitlesData(
-        bottomTitles: SideTitles(
+        bottomTitles: AxisTitles(sideTitles: SideTitles(
           showTitles: true,
           reservedSize: 24,
-          textStyle: const TextStyle(
-            color: AppColors.roleTextColor,
-            fontSize: 11,
-          ),
-          margin: 0,
-          getTitles: (value) {
+          getTitlesWidget: (value, meta) {
+            String text = '';
             switch (value.toInt()) {
               case 2:
-                return 'Sept';
+                text = 'Sept';
+                break;
               case 7:
-                return 'Oct';
+                text = 'Oct';
+                break;
               case 12:
-                return 'Dec';
+                text = 'Dec';
+                break;
             }
-            return '';
-          },
-        ),
-        leftTitles: SideTitles(
-          showTitles: true,
-          textStyle: const TextStyle(
+            return Text(text, style: const TextStyle(
             color: AppColors.roleTextColor,
-            fontSize: 11,
+                fontSize: 11,));
+          },
           ),
-          getTitles: (value) {
+        ),
+        leftTitles: AxisTitles(sideTitles: SideTitles(
+          showTitles: true,
+          reservedSize: 24,
+          getTitlesWidget: (value, meta) {
+            String text = '';
             switch (value.toInt() * 25) {
               case 0:
-                return '0';
+                text= '0';
+                break;
               case 25:
-                return '25%';
+                text= '25%';
+                break;
               case 50:
-                return '50%';
+                text= '50%';
+                break;
               case 75:
-                return '75%';
+                text= '75%';
+                break;
               case 100:
-                return '100%';
+                text= '100%';
             }
-            return '';
+            return Text(text, style: const TextStyle(
+            color: AppColors.roleTextColor,
+                fontSize: 11,));
           },
-          margin: 0,
-          reservedSize: 40,
+          ),
         ),
       ),
       borderData: FlBorderData(
@@ -178,20 +183,21 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         FlSpot(12, 1.8),
       ],
       isCurved: true,
-      colors: [
-        AppColors.hotTemperature,
-      ],
+      color: AppColors.hotTemperature,
       barWidth: 2,
       isStrokeCapRound: true,
-      dotData: FlDotData(
+      dotData: const FlDotData(
         show: false,
       ),
       belowBarData: BarAreaData(
-        colors: [AppColors.hotTemperature.withOpacity(.1)],
-        gradientColorStops: [.5, .2],
+        color: AppColors.hotTemperature.withOpacity(.1),
+        gradient: LinearGradient(
+            colors: [AppColors.hotTemperature.withOpacity(.1), AppColors.hotTemperature.withOpacity(.1)],
+          stops: const [.5, .2],
+          begin: Alignment.bottomRight,
+          end: Alignment.topLeft
+        ),
         show: true,
-        gradientFrom: const Offset(2, 3),
-        gradientTo: const Offset(0, 0),
       ),
     );
 

@@ -6,9 +6,9 @@ import '../model/profile.dart';
 
 class ProfileListWidget extends StatelessWidget {
   const ProfileListWidget({
-    @required this.profiles,
-    this.onProfileSelect,
-    Key key,
+    required this.profiles,
+    required this.onProfileSelect,
+    Key? key,
   })  : assert(profiles != null, 'Profiles cannot be null'),
         super(key: key);
 

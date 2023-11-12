@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import '../common/common.dart';
 import '../constants/constant.dart';
 
 class DeviceFilter extends StatelessWidget {
   const DeviceFilter({
-    @required this.initValue,
-    @required this.filters,
-    this.onChange,
-    Key key,
+    required this.initValue,
+    required this.filters,
+    required this.onChange,
+    Key? key,
   }) : super(key: key);
 
   final String initValue;
-  final ValueChanged<String> onChange;
+  final ValueChanged<String?> onChange;
   final List<String> filters;
 
   @override
@@ -29,7 +28,7 @@ class DeviceFilter extends StatelessWidget {
             icon: const Padding(
               padding: EdgeInsets.only(left: 16),
               child: Icon(
-                SimpleLineIcons.arrow_down,
+                Icons.arrow_downward,
                 color: AppColors.white,
                 size: 16,
               ),

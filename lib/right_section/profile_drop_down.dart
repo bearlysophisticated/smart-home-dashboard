@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
 import '../common/common.dart';
 import '../constants/constant.dart';
 import '../model/profile.dart';
 
 class SelectProfileWidget extends StatelessWidget {
   const SelectProfileWidget({
-    @required this.profiles,
-    Key key,
-    this.onProfileChange,
+    required this.profiles,
+    Key? key,
+    required this.onProfileChange,
   }) : super(key: key);
 
   final List<Profile> profiles;
 
-  final ValueChanged<int> onProfileChange;
+  final ValueChanged<int?> onProfileChange;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +36,7 @@ class SelectProfileWidget extends StatelessWidget {
               icon: const Padding(
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: Icon(
-                  SimpleLineIcons.arrow_down,
+                  Icons.arrow_downward,
                   color: AppColors.profileName,
                   size: 16,
                 ),

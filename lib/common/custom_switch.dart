@@ -6,13 +6,13 @@ import 'custom_switch_button.dart';
 
 class Switch extends StatelessWidget {
   const Switch({
-    @required this.value,
-    @required this.activeTrackColor,
-    @required this.inActiveTrackColor,
-    @required this.indicatorActiveColor,
-    @required this.indicatorInActiveColor,
-    this.onChanged,
-    Key key,
+    required this.value,
+    required this.activeTrackColor,
+    required this.inActiveTrackColor,
+    required this.indicatorActiveColor,
+    required this.indicatorInActiveColor,
+    required this.onChanged,
+    Key? key,
   }) : super(key: key);
 
   final bool value;

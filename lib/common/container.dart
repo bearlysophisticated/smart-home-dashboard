@@ -3,10 +3,10 @@ import '../constants/constant.dart';
 
 class ContentContainer extends StatelessWidget {
   const ContentContainer({
-    @required this.child,
+    required this.child,
     this.borderRadius = 8.0,
     this.color = AppColors.containerFill,
-    Key key,
+    Key? key,
   }) : super(key: key);
   final Widget child;
   final double borderRadius;

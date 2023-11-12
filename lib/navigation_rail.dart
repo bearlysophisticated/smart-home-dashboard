@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'common/common.dart';
 import 'constants/constant.dart';
-import 'model/navigation_destination.dart';
+import 'model/navigation_destination.dart' as nd;
 import 'strings.dart';
 
 class MainNavigationRail extends StatefulWidget {
   const MainNavigationRail({
-    @required this.destinations,
-    this.onDestinationClick,
-    this.onLogoutButtonClick,
-    Key key,
+    required this.destinations,
+    required this.onDestinationClick,
+    required this.onLogoutButtonClick,
+    Key? key,
   }) : super(key: key);
 
-  final Function onLogoutButtonClick;
+  final VoidCallback onLogoutButtonClick;
   final ValueChanged<int> onDestinationClick;
-  final List<NavigationDestination> destinations;
+  final List<nd.NavigationDestination> destinations;
 
   @override
   _MainNavigationRailState createState() => _MainNavigationRailState();
@@ -97,15 +97,15 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({
-    @required this.icon,
-    this.tooltip,
-    this.onClick,
-    Key key,
+    required this.icon,
+    required this.tooltip,
+    required this.onClick,
+    Key? key,
   }) : super(key: key);
 
   final String icon;
   final String tooltip;
-  final Function onClick;
+  final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -136,12 +136,12 @@ class LogoutButton extends StatelessWidget {
 
 class NavigationItem extends StatelessWidget {
   const NavigationItem({
-    @required this.navigationDestination,
-    this.onClick,
-    Key key,
+    required this.navigationDestination,
+    required this.onClick,
+    Key? key,
   }) : super(key: key);
-  final Function onClick;
-  final NavigationDestination navigationDestination;
+  final VoidCallback onClick;
+  final nd.NavigationDestination navigationDestination;
 
   Widget _getIcon(bool active) {
     if (active) {
@@ -200,7 +200,7 @@ class NavigationItem extends StatelessWidget {
 }
 
 class VerticalLine extends StatelessWidget {
-  const VerticalLine({Key key}) : super(key: key);
+  const VerticalLine({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -219,7 +219,7 @@ class VerticalLine extends StatelessWidget {
 }
 
 class LogoWidget extends StatelessWidget {
-  const LogoWidget({Key key}) : super(key: key);
+  const LogoWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 import '../common/common.dart';
 import '../common/custom_switch.dart' as cs;
@@ -11,11 +10,11 @@ import 'appliance_controller.dart';
 
 class SelectedItem extends StatefulWidget {
   const SelectedItem({
-    @required this.icon,
-    @required this.title,
-    @required this.itemOn,
-    @required this.onItemStateChange,
-    Key key,
+    required this.icon,
+    required this.title,
+    required this.itemOn,
+    required this.onItemStateChange,
+    Key? key,
   }) : super(key: key);
 
   final String icon;
@@ -142,7 +141,7 @@ class _SelectedItemState extends State<SelectedItem> {
                       },
                       icon: const Center(
                         child: Icon(
-                          FontAwesome.minus,
+                          Icons.remove_rounded,
                           color: AppColors.switchTrack,
                           size: 16,
                         ),
@@ -177,7 +176,7 @@ class _SelectedItemState extends State<SelectedItem> {
                       },
                       icon: const Center(
                         child: Icon(
-                          FontAwesome.plus,
+                          Icons.add,
                           color: AppColors.white,
                           size: 16,
                         ),

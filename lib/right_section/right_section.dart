@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
 import '../common/common.dart';
 import '../constants/constant.dart';
 import '../model/device.dart';
@@ -14,7 +12,7 @@ import 'right_arrow_icon_button.dart';
 import 'scaled_icon_button.dart';
 
 class RightSection extends StatefulWidget {
-  const RightSection({Key key}) : super(key: key);
+  const RightSection({Key? key}) : super(key: key);
 
   @override
   _RightSectionState createState() => _RightSectionState();
@@ -173,7 +171,7 @@ class _RightSectionState extends State<RightSection> {
                     icon: const Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Icon(
-                        SimpleLineIcons.arrow_down,
+                        Icons.arrow_downward,
                         color: AppColors.white,
                         size: 12,
                       ),
@@ -253,7 +251,7 @@ class _RightSectionState extends State<RightSection> {
               initValue: initialDeviceFilter,
               onChange: (value) {
                 print('Device filter state change to: $value');
-                setState(() => initialDeviceFilter = value);
+                setState(() => initialDeviceFilter = value!);
               },
             ),
             const HorizontalSpacer(

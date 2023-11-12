@@ -1,11 +1,11 @@
 class Appliance {
   Appliance(this.id,
-      {this.name,
-      this.isActive,
-      this.selected,
-      this.activeIcon,
-      this.inActiveIcon,
-      this.selectedIcon});
+      {required this.name,
+      required this.isActive,
+      required this.selected,
+      required this.activeIcon,
+      required this.inActiveIcon,
+      required this.selectedIcon});
 
   final int id;
   final String name;

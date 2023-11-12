@@ -4,7 +4,7 @@ import 'common/common.dart';
 import 'constants/app_colors.dart';
 import 'constants/assets.dart';
 import 'middle_section.dart';
-import 'model/navigation_destination.dart';
+import 'model/navigation_destination.dart' as nd;
 import 'navigation_rail.dart';
 import 'right_section/right_section.dart';
 import 'strings.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
-    Key key,
+     Key? key,
   }) : super(key: key);
 
   @override
@@ -38,29 +38,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<NavigationDestination> destinations = [
-    NavigationDestination(
+  final List<nd.NavigationDestination> destinations = [
+    nd.NavigationDestination(
       icon: Assets.homePng,
       isActive: true,
       tooltip: Strings.home,
     ),
-    NavigationDestination(
+    nd.NavigationDestination(
       icon: Assets.lampPng,
       tooltip: Strings.lights,
     ),
-    NavigationDestination(
+    nd.NavigationDestination(
       icon: Assets.securityPng,
       tooltip: Strings.security,
     ),
-    NavigationDestination(
+    nd.NavigationDestination(
       icon: Assets.locationPng,
       tooltip: Strings.location,
     ),
-    NavigationDestination(
+    nd.NavigationDestination(
       icon: Assets.usersPng,
       tooltip: Strings.users,
     ),
-    NavigationDestination(
+    nd.NavigationDestination(
       icon: Assets.chartPng,
       tooltip: Strings.stats,
     ),

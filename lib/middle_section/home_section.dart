@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-
 import '../common/common.dart';
 import '../common/vertical_spacer.dart';
 import '../constants/constant.dart';
@@ -12,7 +10,7 @@ import 'icon_text.dart';
 import 'selected_item.dart';
 
 class HomeSectionWidget extends StatefulWidget {
-  const HomeSectionWidget({Key key}) : super(key: key);
+  const HomeSectionWidget({Key? key}) : super(key: key);
 
   @override
   _HomeSectionWidgetState createState() => _HomeSectionWidgetState();
@@ -155,7 +153,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                     icon: const Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Icon(
-                        SimpleLineIcons.arrow_down,
+                        Icons.arrow_downward,
                         color: AppColors.white,
                         size: 16,
                       ),
@@ -190,7 +188,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                       ),
                     ],
                     onChanged: (value) {
-                      setState(() => currentRoom = value);
+                      setState(() => currentRoom = value!);
                     },
                   ),
                 ),

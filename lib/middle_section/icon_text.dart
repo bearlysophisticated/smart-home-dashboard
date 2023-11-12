@@ -4,9 +4,9 @@ import '../constants/constant.dart';
 
 class IconWithText extends StatelessWidget {
   const IconWithText({
-    @required this.icon,
-    @required this.label,
-    Key key,
+    required this.icon,
+    required this.label,
+    Key? key,
   }) : super(key: key);
 
   final String label;

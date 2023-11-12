@@ -3,14 +3,14 @@ import 'package:simple_animations/simple_animations.dart';
 
 class CustomSwitchButton extends StatefulWidget {
   const CustomSwitchButton({
-    @required this.activeTrackColor,
-    @required this.value,
-    @required this.indicatorActiveColor,
-    @required this.indicatorInActiveColor,
-    @required this.animationDuration,
-    @required this.inActiveTrackColor,
+    required this.activeTrackColor,
+    required this.value,
+    required this.indicatorActiveColor,
+    required this.indicatorInActiveColor,
+    required this.animationDuration,
+    required this.inActiveTrackColor,
     this.width = 32.0,
-    this.onChanged,
+    required this.onChanged,
     this.indicatorPadding = const EdgeInsets.all(1),
   })  : assert(animationDuration != null, 'Animation duration cannot be null'),
         assert(indicatorInActiveColor != null,
@@ -35,11 +35,11 @@ class CustomSwitchButton extends StatefulWidget {
 }
 
 class _CustomSwitchButtonState extends State<CustomSwitchButton> {
-  double height;
-  double outerBoxRadius;
-  double innerBoxRadius;
-  double indicatorHeight;
-  double indicatorWidth;
+  double? height;
+  double? outerBoxRadius;
+  double? innerBoxRadius;
+  double? indicatorHeight;
+  double? indicatorWidth;
 
   @override
   void initState() {
@@ -48,42 +48,43 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
     outerBoxRadius = height;
     indicatorHeight = height;
     indicatorWidth = height;
-    innerBoxRadius = indicatorWidth / 2;
+    innerBoxRadius = (indicatorWidth ?? 0) / 2;
   }
 
   @override
   Widget build(BuildContext context) {
-    var tween = MultiTrackTween([
-      Track("paddingLeft").add(
-        widget.animationDuration,
-        Tween(begin: 0.0, end: height),
-      ),
-      Track("paddingRight").add(
-        widget.animationDuration,
-        Tween(begin: height, end: 0),
-      ),
-      Track("color").add(
-          widget.animationDuration,
-          ColorTween(
-              begin: widget.indicatorInActiveColor,
-              end: widget.indicatorActiveColor)),
-    ]);
+    // var tween = MultiTrackTween([
+    //   Track("paddingLeft").add(
+    //     widget.animationDuration,
+    //     Tween(begin: 0.0, end: height),
+    //   ),
+    //   Track("paddingRight").add(
+    //     widget.animationDuration,
+    //     Tween(begin: height, end: 0),
+    //   ),
+    //   Track("color").add(
+    //       widget.animationDuration,
+    //       ColorTween(
+    //           begin: widget.indicatorInActiveColor,
+    //           end: widget.indicatorActiveColor)),
+    // ]);
 
-    return ControlledAnimation(
-      playback: widget.value ? Playback.PLAY_FORWARD : Playback.PLAY_REVERSE,
-      startPosition: widget.value ? 1.0 : 0.0,
-      duration: tween.duration * 1.2,
-      tween: tween,
-      curve: Curves.easeInOut,
-      builder: _buildSwitch,
-    );
+    // return ControlledAnimation(
+    //   playback: widget.value ? Playback.PLAY_FORWARD : Playback.PLAY_REVERSE,
+    //   startPosition: widget.value ? 1.0 : 0.0,
+    //   duration: tween.duration * 1.2,
+    //   tween: tween,
+    //   curve: Curves.easeInOut,
+    //   builder: _buildSwitch,
+    // );
+    return _buildSwitch(context);
   }
 
-  Widget _buildSwitch(context, animation) {
+  Widget _buildSwitch(context) {
     return GestureDetector(
       onTap: () => widget.onChanged(!widget.value),
       child: Container(
-        decoration: _outerBoxDecoration(widget.activeTrackColor),
+        // decoration: _outerBoxDecoration(widget.activeTrackColor),
         width: widget.width,
         height: height,
         padding: widget.indicatorPadding,
@@ -91,12 +92,13 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
           children: [
             Positioned(
               child: Padding(
-                padding: EdgeInsets.only(
-                  left: animation['paddingLeft'],
-                  right: animation['paddingRight'],
-                ),
+                padding: const EdgeInsets.all(0),
+                // padding: EdgeInsets.only(
+                //   left: animation['paddingLeft'],
+                //   right: animation['paddingRight'],
+                // ),
                 child: Container(
-                  decoration: _innerBoxDecoration(animation['color']),
+                  // decoration: _innerBoxDecoration(animation['color']),
                   width: indicatorWidth,
                   height: indicatorHeight,
                   child: Material(
@@ -122,16 +124,16 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
     );
   }
 
-  BoxDecoration _innerBoxDecoration(color) => BoxDecoration(
-        borderRadius: BorderRadius.circular(innerBoxRadius),
-        color: color,
-      );
-
-  BoxDecoration _outerBoxDecoration(color) => BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(outerBoxRadius),
-        ),
-        color:
-            widget.value ? widget.activeTrackColor : widget.inActiveTrackColor,
-      );
+  // BoxDecoration _innerBoxDecoration(color) => BoxDecoration(
+  //       borderRadius: BorderRadius.circular(innerBoxRadius),
+  //       color: color,
+  //     );
+  //
+  // BoxDecoration _outerBoxDecoration(color) => BoxDecoration(
+  //       borderRadius: BorderRadius.all(
+  //         Radius.circular(outerBoxRadius),
+  //       ),
+  //       color:
+  //           widget.value ? widget.activeTrackColor : widget.inActiveTrackColor,
+  //     );
 }

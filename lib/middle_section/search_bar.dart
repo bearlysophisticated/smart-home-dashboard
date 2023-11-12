@@ -5,7 +5,7 @@ import '../constants/constant.dart';
 import '../strings.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({Key key}) : super(key: key);
+  const SearchBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

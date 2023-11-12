@@ -7,15 +7,15 @@ import '../constants/constant.dart';
 
 class AppliancesListItem extends StatelessWidget {
   const AppliancesListItem({
-    @required this.name,
-    @required this.activeIcon,
-    @required this.inActiveIcon,
-    @required this.selectedIcon,
+    required this.name,
+    required this.activeIcon,
+    required this.inActiveIcon,
+    required this.selectedIcon,
     this.value = true,
     this.selected = false,
-    this.onStateChange,
-    this.onSelected,
-    Key key,
+    required this.onStateChange,
+    required this.onSelected,
+    Key? key,
   }) : super(key: key);
 
   final String name;

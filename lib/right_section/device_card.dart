@@ -7,9 +7,9 @@ import '../model/device.dart';
 
 class DeviceCard extends StatefulWidget {
   const DeviceCard({
-    @required this.device,
-    this.onDeviceActiveStateChange,
-    Key key,
+    required this.device,
+    required this.onDeviceActiveStateChange,
+    Key? key,
   }) : super(key: key);
 
   final Device device;

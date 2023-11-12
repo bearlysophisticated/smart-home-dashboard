@@ -9,7 +9,7 @@ import 'middle_section/search_bar.dart';
 import 'middle_section/welcome_card.dart';
 
 class MiddleSection extends StatefulWidget {
-  const MiddleSection({Key key}) : super(key: key);
+  const MiddleSection({Key? key}) : super(key: key);
 
   @override
   _MiddleSectionState createState() => _MiddleSectionState();

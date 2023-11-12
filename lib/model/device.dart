@@ -3,11 +3,11 @@ import '../constants/constant.dart';
 
 class Device {
   Device({
-    @required this.id,
-    @required this.name,
-    @required this.isActive,
-    @required this.linearGradient,
-    @required this.icon,
+    required this.id,
+    required this.name,
+    required this.isActive,
+    required this.linearGradient,
+    required this.icon,
   });
 
   final int id;

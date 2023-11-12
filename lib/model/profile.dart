@@ -3,11 +3,11 @@ import '../constants/constant.dart';
 
 class Profile {
   Profile({
-    @required this.id,
-    @required this.firstName,
-    @required this.role,
-    @required this.avatar,
-    this.lastName,
+    required this.id,
+    required this.firstName,
+    required this.role,
+    required this.avatar,
+    required this.lastName,
     this.selected = false,
   });
 

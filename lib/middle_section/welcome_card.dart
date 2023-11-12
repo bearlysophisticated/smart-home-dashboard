@@ -3,7 +3,7 @@ import '../common/common.dart';
 import '../constants/constant.dart';
 
 class WelcomeCardWidget extends StatelessWidget {
-  const WelcomeCardWidget({Key key}) : super(key: key);
+  const WelcomeCardWidget({Key? key}) : super(key: key);
 // \u2109
   @override
   Widget build(BuildContext context) {

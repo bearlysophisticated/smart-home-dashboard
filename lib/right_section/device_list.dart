@@ -5,9 +5,9 @@ import 'device_card.dart';
 
 class DeviceListWidget extends StatefulWidget {
   const DeviceListWidget({
-    @required this.devices,
-    this.onDeviceStateChange,
-    Key key,
+    required this.devices,
+    required this.onDeviceStateChange,
+    Key? key,
   }) : super(key: key);
   final List<Device> devices;
 
